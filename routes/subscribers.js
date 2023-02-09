@@ -13,8 +13,8 @@ router.get('/', async (req, res) => {
 })
 
 // Getting one
-router.get('/:id', (req, res) => {
-  res.send(req.param.id)
+router.get('/:id', getSubscriber, (req, res) => {
+  res.send(res.subscriber.name)
 })
 
 // Creating one
@@ -42,10 +42,10 @@ router.delete('/:id', (req, res) => {
   
 })
 
-const getSubscriber = async (req, res, next) => {
+async function getSubscriber(req, res, next) {
   let subscriber
   try {
-    subscriber = await Subscriber.findById(req.param.id)
+    subscriber = await Subscriber.findById(req.params.id)
     if (subscriber == null) {
       return res.status(404).json({ message: "cannot find subscriber" })
     }
