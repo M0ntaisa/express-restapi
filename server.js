@@ -1,17 +1,17 @@
 require('dotenv').config();
 
-import express, { json } from 'express';
+const express = require('express');
 const app = express();
-import { connect, set, connection } from 'mongoose';
+const mongoose = require('mongoose');
 
-connect(process.env.DB_URL, { useNewUrlParser : true }, set('strictQuery', true));
-const db = connection;
+mongoose.connect(process.env.DB_URL, { useNewUrlParser : true }, mongoose.set('strictQuery', true));
+const db = mongoose.connection;
 db.on('error', (error) => console.error(error));
 db.once('open', () => console.log('Connected to Database'));
 
-app.use(json());
+app.use(express.json());
 
-import subscribersRouter from './routes/subscribers';
+const subscribersRouter = require('./routes/subscribers');
 app.use('/subscribers', subscribersRouter);
 
 
