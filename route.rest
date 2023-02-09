@@ -1,7 +1,7 @@
 GET http://localhost:3000/subscribers
 
 ###
-GET http://localhost:3000/subscribers/63e46a7f93d9612cf2692e4a
+GET http://localhost:3000/subscribers/63e46e5b31ae3e9a83b7f544
 
 ###
 POST http://localhost:3000/subscribers
@@ -11,3 +11,6 @@ Content-Type: application/json
   "name": "Amazing Person",
   "subscribedToChannel": "Accompany On"
 }
+
+###
+DELETE http://localhost:3000/subscribers/63e46a7f93d9612cf2692e4a
