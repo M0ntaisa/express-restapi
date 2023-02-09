@@ -5,7 +5,7 @@ const subscriberSchema = new Schema({
     type: String,
     required: true
   },
-  subscriberToChannel: {
+  subscribedToChannel: {
     type: String,
     required: true
   },
