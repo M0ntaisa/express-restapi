@@ -1,11 +1,11 @@
-const mongoose = require('mongoose');
+import { Schema, model } from 'mongoose';
 
-const subscriberSchema = new mongoose.Schema({
+const subscriberSchema = new Schema({
   name: {
     type: String,
     required: true
   },
-  subscribedToChannel: {
+  subscriberToChannel: {
     type: String,
     required: true
   },
@@ -16,4 +16,4 @@ const subscriberSchema = new mongoose.Schema({
   }
 })
 
-module.exports = mongoose.model('Subscriber', subscriberSchema)
+export default model('Subscriber', subscriberSchema)
